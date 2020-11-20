@@ -19,3 +19,12 @@ time.sleep(1)
 print('start... 511 again')
 print(factorial(511))
 
+# another example
+@lru_cache(maxsize=None)
+def fib(n):
+    return n if n < 2 else fib(n-2) + fib(n-1)
+print(fib(996)) # fail on more then 997
+
+import sys
+sys.setrecursionlimit(2000)
+print(fib(1990))
